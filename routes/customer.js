@@ -17,6 +17,7 @@ customer.get("/api/customer/items", function(req, res) {
       console.log(err)
     })
 })
+// POST /api/customer/items/:itemId/purchases - purchase an item
 
 module.exports = customer
 

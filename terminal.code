@@ -9,3 +9,16 @@ sequelize db:migrate
 sequelize model:create --name Items --attributes 'nameOfItem:STRING  itemCost:DECIMAL quantity:INTEGER'
 
 sequelize db:migrate
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+sequelize db:migrate
+
+sequelize model:create --name Purchases --attributes 'itemId:INTEGER purchasedAt:DATE  moneyInMachine:DECIMAL'
+
+sequelize db:migrate
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+sequelize migration:create
+
+sequelize db:migrate

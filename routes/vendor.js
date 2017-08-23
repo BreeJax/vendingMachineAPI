@@ -20,6 +20,7 @@ vendor.post("/api/vendor/items", function(req, res) {
       console.log(err)
     })
 })
+
 // PUT /api/vendor/items/:itemId - update item quantity, description, and cost
 
 // GET /api/vendor/purchases - get a list of all purchases with their item and date/time
