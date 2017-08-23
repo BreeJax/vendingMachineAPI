@@ -1,7 +1,24 @@
 const express = require("express")
-const router = express.Router()
+const customer = express.Router()
 const models = require("../models")
 
-console.log("hello")
+// customer.get("/api/customer/items", (req, res) => {
+//   console.log("hello This")
+//   res.json(Items)
+// })
 
-module.exports = router
+customer.get("/api/customer/items", function(req, res) {
+  models.Items
+    .findAll()
+    .then(items => {
+      res.json(items)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
+
+module.exports = customer
+
+// GET /api/customer/items - get a list of items
+// POST /api/customer/items/:itemId/purchases - purchase an item
