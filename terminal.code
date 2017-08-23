@@ -1,0 +1,11 @@
+npm install sequelize pg --save
+
+sequelize init
+
+createdb vendingMachine
+
+sequelize db:migrate
+
+sequelize model:create --name Items --attributes 'nameOfItem:STRING  itemCost:DECIMAL quantity:INTEGER'
+
+sequelize db:migrate
