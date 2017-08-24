@@ -21,7 +21,7 @@ customer.get("/api/customer/items", function(req, res) {
 //need to find o
 customer.post("/api/customer/items/:itemId/purchases", (req, res) => {
   models.Items.findById(req.params.itemId).then(item => {
-    if (item.quantity > 0) {
+    if (item.quantity > 0 && req.body.amount >= item.itemCost) {
       let changeBack = req.body.amount - item.itemCost
       const purchase = models.Purchases.build({
         moneyInMachine: item.itemCost,
