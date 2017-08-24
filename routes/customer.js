@@ -2,11 +2,6 @@ const express = require("express")
 const customer = express.Router()
 const models = require("../models")
 
-// customer.get("/api/customer/items", (req, res) => {
-//   console.log("hello This")
-//   res.json(Items)
-// })
-
 customer.get("/api/customer/items", function(req, res) {
   models.Items
     .findAll()
@@ -18,8 +13,12 @@ customer.get("/api/customer/items", function(req, res) {
     })
 })
 
+//need to find a way of saying ()
 customer.post("/api/customer/items/:itemId/purchases", (req, res) => {
   models.Items.findById(req.params.itemId).then(item => {
+    if (req.body.quantity >= 1) {
+      models.Items.update()
+    }
     let changeBack = req.body.amount - item.itemCost
     const purchase = models.Purchases.build({
       moneyInMachine: item.itemCost,
@@ -32,7 +31,5 @@ customer.post("/api/customer/items/:itemId/purchases", (req, res) => {
     })
   })
 })
-module.exports = customer
 
-// GET /api/customer/items - get a list of items
-// POST /api/customer/items/:itemId/purchases - purchase an item
+module.exports = customer
