@@ -54,19 +54,10 @@ vendor.get("/api/vendor/purchases", function(req, res) {
     })
 })
 
-// GET /api/vendor/money - get a total amount of money accepted by the machine
-
 vendor.get("/api/vendor/money", function(req, res) {
   models.Purchases.sum("moneyInMachine").then(sum => {
     res.json(sum)
   })
 })
-
-/*
-  Let's assume 3 person objects with an attribute age.
-  The first one is 10 years old,
-  the second one is 5 years old,
-  the third one is 40 years old.
-*/
 
 module.exports = vendor
