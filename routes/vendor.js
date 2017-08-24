@@ -43,7 +43,16 @@ vendor.put("/api/vendor/items/:id", function(req, res) {
     })
 })
 
-// PUT /api/vendor/items/:itemId - update item quantity, description, and cost
+vendor.get("/api/vendor/purchases", function(req, res) {
+  models.Purchases
+    .findAll({ attributes: ["itemId", "purchasedAt"] })
+    .then(purchases => {
+      res.json(purchases)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
 
 // GET /api/vendor/purchases - get a list of all purchases with their item and date/time
 // GET /api/vendor/money - get a total amount of money accepted by the machine
