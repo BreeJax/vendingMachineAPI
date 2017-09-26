@@ -2,8 +2,6 @@ const express = require("express")
 const vendor = express.Router()
 const models = require("../models")
 
-console.log("hello again")
-
 vendor.post("/api/vendor/items", function(req, res) {
   const newItem = models.Items.build({
     nameOfItem: req.body.nameOfItem,
@@ -23,7 +21,6 @@ vendor.post("/api/vendor/items", function(req, res) {
 
 vendor.put("/api/vendor/items/:id", function(req, res) {
   const id = parseInt(req.params.id)
-  console.log(id + " this is id")
   const updateItem = models.Items
     .update(
       {

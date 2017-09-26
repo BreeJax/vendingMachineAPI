@@ -1,1 +1,5 @@
+A pure Back-End app. API created, ready to be pulled from. Comparable to a a POS system or inventory.
 
+Tech used: JavaScript, express, body-parser, pg, sequelize.
+
+Easiest to see it used postman. 
